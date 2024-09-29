@@ -10,16 +10,27 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-
     <script src="/js/users.js"></script>
 
     <div class="container">
 
-        <h2 id="title">WELCOME TO SHMAYMON</h2>
-        <h3>A game website to the whole family</h3><br>
+        <h2 id="title">sign in</h2>
+        <h3>we're so happy to meet you!</h3><br>
 
         <div id="center">
-            <h2 class="sign">First of all,do we already know you?</h2>
+            <h2 class="sign">Please fill in your information down below</h2>
+
+            <label for="firstname"><b>First name</b></label><br>
+            <input id="firstname" type="text" placeholder="Enter first name" name="firstname" required><br>
+
+            <label for="lastname"><b>Last name</b></label><br>
+            <input id="lastname" type="text" placeholder="Enter last name" name="lastname" required><br>
+
+            <label for="age"><b>Age</b></label><br>
+            <input id="age" type="number" name="age" required><br>
+
+            <label for="email"><b>Email</b></label><br>
+            <input id="email" type="email" name="email" placeholder="Enter Email" required><br>
 
             <label for="username"><b>User-name</b></label><br>
             <input id="username" type="text" placeholder="Enter Username" name="username" required><br>
@@ -27,20 +38,15 @@
             <label for="password"><b>Password</b></label><br>
             <input id="password" type="password" placeholder="Enter Password" name="password" required><br><br>
 
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label><br><br>
+            <input type="checkbox" checked="checked" name="newsletter" id="newsletter"> 
+            <label for="newsletter">Join to our newsletter</label>
+            <br><br>
                 
-            <button type="submit" id="logIn">Log-in</button><br>
+            <a href="/index.html"><button type="submit" id="signIn">sign in</button></a>
 
-            <h2 class="sign">If we don't know you yet:</h2>
-
-            <a href="/html/signIn.html"><button type="submit" id="signIn">sign in</button></a>
-
-            <a href="/html/home.html"><button type="submit" id="guest">Continue as a guest</button></a>
         </div>
 
-        <script src="/js/index.js"></script>
+        <script src="/js/signin.js"></script>
 
     </div>
 </form>
