@@ -32,6 +32,10 @@ var arr1 = [
   'הממ"ק',
 ];
 
+arrangeBoard()
+
+arrangeBoard2()
+
 function pickRandom(arrs) {
   var lengthOfArray = arrs.length - 1;
   var randomNumber = Math.round(Math.random() * lengthOfArray);
@@ -68,23 +72,164 @@ function sentenceGenerator() {
 
 }
 
+var row;
+var column;
+var row2;
+var column2;
+
 function sentenceRandom(){
   var sent = sentenceGenerator(sentencesArr);
   document.getElementById("sentence").innerHTML=sent;
+  
+  for(let x = 1 ; x < 17 ; x++){
+    let hii = "itemm" + x
+    let thisSentences =  document.getElementById(hii.toString()); 
+    
+    if(thisSentences.innerHTML === sent){
+      thisSentences.onclick = function() {ClickBingo()};
+      function ClickBingo() {
+      thisSentences.style.backgroundColor = "green";
+
+
+      for(let x = 1 ; x < 17 ; x++){
+        if(1 <= x && x <= 4) {row2 = 1}
+        if(5 <= x && x <= 8) {row2 = 2}
+        if(9 <= x && x <= 12) {row2 = 3}
+        if(13 <= x && x <= 16) {row2 = 4}
+        if(x === 1 || x === 5 || x === 9 || x === 13) {column2 = 1}
+        if(x === 2 || x === 6 || x === 10 || x === 14) {column2 = 2}
+        if(x === 3 || x === 7 || x === 11 || x === 15) {column2 = 3}
+        if(x === 4 || x === 8 || x === 12 || x === 16) {column2 = 4}
+    
+    
+      var numberOfGreen = 0;
+      for(let y = 0; y < 4 ; y++){
+        const element = document.getElementById(`itemm${1+y}`).style.backgroundColor
+        console.log(element)
+        if (row2 === 1 ){
+          if(document.getElementById(`itemm${1+y}`).style.backgroundColor == "green"){
+            numberOfGreen++
+          }
+        }
+        if (row2 === 2 ){
+          if(document.getElementById(`itemm${5+y}`).style.backgroundColor == "green"){
+            numberOfGreen++
+          }
+        }
+        if (row2 === 3 ){
+          if(document.getElementById(`itemm${9+y}`).style.backgroundColor == "green"){
+            numberOfGreen++
+          }
+        }if (row2 === 4 ){
+          if(document.getElementById(`itemm${13+y}`).style.backgroundColor == "green"){
+            numberOfGreen++
+          }
+        }
+      }
+    
+      var columnnumberOfGreen = 0;
+      for(let z = 0; z < 16 ; z += 4){
+        if (column2 === 1 ){
+          if(document.getElementById(`itemm${1+z}`).style.backgroundColor == "green"){
+            columnnumberOfGreen++
+          }
+        }
+        if (column2 === 2 ){
+          if(document.getElementById(`itemm${2+z}`).style.backgroundColor == "green"){
+            columnnumberOfGreen++
+          }
+        }
+          if (column2 === 3 ){
+            if(document.getElementById(`itemm${3+z}`).style.backgroundColor == "green"){
+              columnnumberOfGreen++
+            }
+          }
+          if (column2 === 4 ){
+            if(document.getElementById(`itemm${4+z}`).style.backgroundColor == "green"){
+              columnnumberOfGreen++
+            }
+          }
+          if( columnnumberOfGreen === 4 || numberOfGreen === 4 ){
+            document.getElementById("result").innerText = "winner";
+
+          }
+        }
+      }
+    }
+  }
+ 
+
+  // check red !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   for(let i = 1 ; i < 17 ; i++){
     let hi = "item" + i
     let thisSentence =  document.getElementById(hi.toString()); 
     if(thisSentence.innerHTML === sent){
-      console.log("hi")
-      console.log( thisSentence);
-      thisSentence.style.backgroundColor = "green";
+      thisSentence.style.backgroundColor = "red";
+
+      if(1 <= i && i <= 4) {row = 1}
+      if(5 <= i && i <= 8) {row = 2}
+      if(9 <= i && i <= 12) {row = 3}
+      if(13 <= i && i <= 16) {row = 4}
+      if(i === 1 || i === 5 || i === 9 || i === 13) {column = 1}
+      if(i === 2 || i === 6 || i === 10 || i === 14) {column = 2}
+      if(i === 3 || i === 7 || i === 11 || i === 15) {column = 3}
+      if(i === 4 || i === 8 || i === 12 || i === 16) {column = 4}
+
+      var numberOfRed = 0;
+      for(let j = 0; j < 4 ; j++){
+        if (row === 1 ){
+          if(document.getElementById(`item${1+j}`).style.backgroundColor == "red"){
+            numberOfRed++
+          }
         }
-  
+        if (row === 2 ){
+          if(document.getElementById(`item${5+j}`).style.backgroundColor == "red"){
+            numberOfRed++
+          }
+        }
+        if (row === 3 ){
+          if(document.getElementById(`item${9+j}`).style.backgroundColor == "red"){
+            numberOfRed++
+          }
+        }if (row === 4 ){
+          if(document.getElementById(`item${13+j}`).style.backgroundColor == "red"){
+            numberOfRed++
+          }
+        }
+      }
+
+      var columnNumberOfRed = 0;
+      for(let t = 0; t < 16 ; t += 4){
+        if (column === 1 ){
+          if(document.getElementById(`item${1+t}`).style.backgroundColor == "red"){
+            columnNumberOfRed++
+          }
+        }
+        if (column === 2 ){
+          if(document.getElementById(`item${2+t}`).style.backgroundColor == "red"){
+            columnNumberOfRed++
+          }
+        }
+        if (column === 3 ){
+          if(document.getElementById(`item${3+t}`).style.backgroundColor == "red"){
+            columnNumberOfRed++
+          }
+        }
+        if (column === 4 ){
+          if(document.getElementById(`item${4+t}`).style.backgroundColor == "red"){
+            columnNumberOfRed++
+          }
+        }
+      }
+
+      if(numberOfRed === 4 || columnNumberOfRed === 4){
+        document.getElementById("result").innerText = "losser";
+        
+
+        }
+      }
+    } 
   }
 }
-
-arrangeBoard()
-
-arrangeBoard2()
 
 
