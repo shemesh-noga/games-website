@@ -4,6 +4,7 @@
     padding: 0%;
     font-size: 16px;
     font-family: "Chakra Petch";
+    color: white;
 }
 
 body{
@@ -86,3 +87,29 @@ header nav ul a{
     border-radius: 10px;
 }
 
+
+#helloContainer{
+    margin-top: 10px;
+}
+
+#helloContainer p{
+    font-size: 1.4rem;
+}
+
+.disappear{
+    display: none;
+}
+
+.appear{
+    display: block;
+}
+
+nav ul a{
+    transition: all 0.2s linear 0.03s;
+}
+
+nav ul a:hover {
+    transform: scale(1.1);
+    font-weight: 500;
+    background-color: rgb(118, 113, 168);
+}

@@ -1,4 +1,6 @@
 const logIn = document.getElementById("logIn");
+window.localStorage.setItem("currentUser", "")
+
 
 
 logIn.addEventListener("click", logInInfo);
@@ -9,7 +11,7 @@ function logInInfo() {
 
     for(let i = 0 ; i < usersArr.length ; i++) {
         if(usersArr[i]["username"] == username && usersArr[i]["password"] == password) {
-            currentUser = usersArr[i];
+            var currentUser = usersArr[i];
             document.querySelector("#wrong").innerHTML = "";
             window.localStorage.removeItem("currentUser")
             window.localStorage.setItem("currentUser", JSON.stringify(currentUser))
