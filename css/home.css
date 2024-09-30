@@ -105,7 +105,7 @@ header nav ul a{
 }
 
 nav ul a{
-    transition: all 0.2s linear 0.03s;
+    transition: all 0.2s linear 0.05s;
 }
 
 nav ul a:hover {
