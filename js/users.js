@@ -1,4 +1,4 @@
-const usersArr = []
+var usersArr = JSON.parse(window.localStorage.getItem("users"));
 
 const aviCohen = {
     "username": "aviCohen",
@@ -10,10 +10,8 @@ const aviCohen = {
     "score": 0
 }
 
-usersArr.push(aviCohen)
 
-
-window.localStorage.setItem("users", JSON.stringify(usersArr))
+console.log(usersArr)
 
 
 

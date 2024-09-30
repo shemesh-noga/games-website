@@ -1,6 +1,5 @@
 const signButton = document.getElementById("signIn");
 
-
 // construction function
 function SignInfo(first, last, username, password, age, email) {
     this.username = username;
@@ -19,10 +18,10 @@ function signIn(){
     const lastname = document.getElementById("lastname").value;
     const age = document.getElementById("age").value;
     const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
+    const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("password").value;
 
-    let usersArr = JSON.parse(window.localStorage.getItem("users"));
+    var usersArr = JSON.parse(window.localStorage.getItem("users"));
 
     for(let i = 0 ; i < usersArr.length ; i++) {
         if(username === usersArr[i]["username"]){
@@ -39,11 +38,9 @@ function signIn(){
 
         const newUser = new SignInfo(firstname, lastname, username, password, age, email);
         usersArr.push(newUser);
+        console.log(usersArr)
         window.localStorage.setItem("users", JSON.stringify(usersArr));
+        window.localStorage.setItem("currentUser", newUser);
         window.location.href = "../index.html";
     }
 }
-
-
-// const user0 = new SignInfo("Avi", "Cohen", "Avi-Cohen", "123", 18, "avicohen@hilma.tech")
-// console.log(user0)
