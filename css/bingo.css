@@ -8,14 +8,16 @@
     height: 400px;
     width: 400px;
     grid-gap: 3px;
-    grid-template-columns: repeat( 17,1fr);
-    grid-template-rows: repeat(17,1fr);
+    grid-template-columns: repeat( 16,1fr);
+    grid-template-rows: repeat(16,1fr);
+    border: 1px solid black;
 
 }
 
 .bingo{
     text-align: center;
-    background-color: aquamarine;
+    background-color: rgb(245, 250, 207);
+    border: 1px solid black;
 }
 
 .item1{
