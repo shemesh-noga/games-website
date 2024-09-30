@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="../css/bingo.css">
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+        <div id="searchOrHome">
+            <section id="search-container">
+                <input type="text" placeholder="Search..." name="search" id="searchBar">
+                <img src="/img/search_43dp_000000_FILL0_wght400_GRAD0_opsz40.png" alt="search" id="magnifying-glass" >
+            </section>
+        </div>
+        <div id="img-container">
+            <a href="/html/home.html"><img src="/img/logo-light.png" alt="shmaymon logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <div id="helloContainer" class="">
+                    <p id="hello" >Hello </p>
+                    <p id="score">SCORE: </p>
+                </div>
+                <a href="#" id="Leadboard"><li>Leadboard</li></a>
+                <a href="/html/signIn.html" id="signup" class=""><li>Sign up</li></a>
+                <a href="/index.html" id="login" class=""><li>Log In</li></a>
+                <a href="#" id="logout" class=""><li>Log out</li></a>
+            </ul>
+        </nav>
+    </header>
     
+
+    <main>
     <p id="sentence"></p>
     <button id="Continue" onclick="sentenceRandom()">Continue</button>
     <button id="start" onclick="arrangeBoard(); arrangeBoard2()">Start</button>
@@ -16,7 +43,7 @@
     <div class="flex">
         <h1 id="result"></h1>
         
-    <div class="container">
+        <div class="container">
 
 
         <div class="item1 bingo" id="item1">
@@ -123,8 +150,9 @@
     </div>
 
 </div>
+</main>
     
-    
+    <script src="/js/home.js"></script>
     <script src="../js/bingo.js"></script>
 </body>
 </html>
