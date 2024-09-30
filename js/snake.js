@@ -67,37 +67,12 @@ function checkDirection() {
     }
 }
 
-function moveRight(){
-    for(let i = 0 ; i < snakeSize ; i++){
-        document.getElementById(`body${i}`).style.left = (posX - 35*i) + "px";
-    }
-}
-
-function moveLeft(){
-    for(let i = 0 ; i < snakeSize ; i++){
-        document.getElementById(`body${i}`).style.left = (posX + 35*i) + "px";
-    }
-}
-
-function moveUp(){
-    for(let i = 0 ; i < snakeSize ; i++){
-        document.getElementById(`body${i}`).style.top = (posY + 35*i) + "px";;
-    }
-}
-
-function moveDown(){
-    for(let i = 0 ; i < snakeSize ; i++){
-        document.getElementById(`body${i}`).style.top = (posY - 35*i) + "px";
-    }
-}
 
 
 function changePos(){
     checkDirection();
-    if(direction === "right") {moveRight()}
-    if(direction === "left") {moveLeft()}
-    if(direction === "up") {moveUp()}
-    if(direction === "down") {moveDown()}
+    document.getElementById("body0").style.left = posX + "px";
+    document.getElementById("body0").style.top = posY + "px";
 }
 
 setInterval(changePos, speedVal);
