@@ -16,7 +16,7 @@
             </section>
         </div>
         <div id="img-container">
-            <a href="#"><img src="/img/logo-light.png" alt="shmaymon logo"></a>
+            <a href="/html/home.html"><img src="/img/logo-light.png" alt="shmaymon logo"></a>
         </div>
         <nav>
             <ul>
@@ -28,6 +28,24 @@
     </header>
 
     <main>
+        <div id="controlsContainer">
+            <div id="controlSpeed">
+                <label for="speeds">Speed</label>
+                <select id="speeds">
+                    <option value="slow">slow</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                    <option value="mega">mega</option>
+                </select>
+            </div>
+            <div id="controlColor">
+                <label for="color">Snake Color</label>
+                <input type="color" id="color" name="color">
+            </div>
+            <div id="controlScore">
+                <p>Score: </p>
+            </div>
+        </div>
         <div id="snakeBoard">
             <div id="snake"></div>
         </div>
@@ -36,9 +54,6 @@
     <script src="/js/snake.js"></script>
 
 
-    <br><br><br><br>
-    <footer>
-        bla bla
-    </footer>
+
 </body>
 </html>

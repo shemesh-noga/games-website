@@ -1,13 +1,14 @@
 main{
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
+    height: 800px;
 }
 
 #snakeBoard{
-    margin-top: 50px;
     background-color: white;
     width: 700px;
     height: 700px;
@@ -17,11 +18,55 @@ main{
     grid-template-rows: repeat(20, 1fr);
 }
 
-#snake{
+#snakeBoard div{
     background-color: purple;
     position: absolute;
     width: 35px;
     height: 35px;
-    left: 350px;
-    top: 350px;
+    left: 0px;
+    top: 0px;
 }
+
+#controlsContainer{
+    background-color: blueviolet;
+    width: 700px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#controlsContainer div{
+    width: 33.333%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#controlSpeed select{
+    width: 100px;
+    height: 30px;
+    font-size: 1.4rem;
+    color: black;
+}
+
+#controlsContainer label, #controlsContainer p{
+    font-size: 1.5rem;
+}
+
+option{
+    color: black;
+    font-size: 1.4rem;
+}
+
+#color{
+    width: 60px;
+}
+
+#controlScore p{
+    font-weight: 700;
+    font-size: 1.6rem;
+
+}
+
