@@ -2,11 +2,22 @@ let snake = document.getElementById("snake");
 let snakeBoard = document.getElementById("snakeBoard")
 let posX = 0;
 let posY = 0;
-let direction = "right";
+let direction = "down";
 var speed = "slow";
 var speedVal = 550;
 let speeds = document.getElementById("speeds");
 let snakeSize = 3;
+
+function createSnakeBody(){
+    for(let j = 0 ; j < snakeSize ; j++){
+        const div = `<div id="body${j}"></div>`;
+        snakeBoard.innerHTML += div;
+    }
+}
+
+createSnakeBody();
+
+document.getElementById("body0").style.backgroundColor = "#ad4aad"
 
 // speeds.addEventListener("click", () => {
 //     speeds.addEventListener("change", () => {
@@ -56,19 +67,38 @@ function checkDirection() {
     }
 }
 
+function moveRight(){
+    for(let i = 0 ; i < snakeSize ; i++){
+        document.getElementById(`body${i}`).style.left = (posX - 35*i) + "px";
+    }
+}
+
+function moveLeft(){
+    for(let i = 0 ; i < snakeSize ; i++){
+        document.getElementById(`body${i}`).style.left = (posX + 35*i) + "px";
+    }
+}
+
+function moveUp(){
+    for(let i = 0 ; i < snakeSize ; i++){
+        document.getElementById(`body${i}`).style.top = (posY + 35*i) + "px";;
+    }
+}
+
+function moveDown(){
+    for(let i = 0 ; i < snakeSize ; i++){
+        document.getElementById(`body${i}`).style.top = (posY - 35*i) + "px";
+    }
+}
+
+
 function changePos(){
-    checkDirection()
-    snake.style.left = posX + "px";
-    snake.style.top = posY + "px";
+    checkDirection();
+    if(direction === "right") {moveRight()}
+    if(direction === "left") {moveLeft()}
+    if(direction === "up") {moveUp()}
+    if(direction === "down") {moveDown()}
 }
 
-
-// creates the snake body
-for(let j = 0 ; j < snakeSize ; j++){
-    const div = document.createElement("div");
-    snakeBoard.appendChild(div);
-}
-
-
-// setInterval(changePos, speedVal);
+setInterval(changePos, speedVal);
 
