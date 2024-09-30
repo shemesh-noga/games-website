@@ -5,6 +5,7 @@ let posY = 0;
 let direction = "right";
 var speed = "slow";
 var speedVal = 200;
+var snakeScore = 0;
 let speeds = document.getElementById("speeds");
 var snakeSize = 5;
 
@@ -12,8 +13,10 @@ var snakeSize = 5;
 
 // create number of divs as the number of the snake body
 function createSnakeBody(){
+    
     for(let j = snakeSize -1 ; j >= 0 ; j--){
         const div = `<div id="body${j}"></div>`;
+
         snakeBoard.innerHTML += div;
         if (j==0){document.getElementById("body0").style.backgroundColor = "#ad4aad"}
     }
@@ -52,7 +55,7 @@ function moveSnakeBody() {
 
 
 function placeFood(){
-    let foodPos = [0, 35, 70, 105, 140, 175, 210, 245, 280, 315, 350, 385, 420, 455, 490, 525, 560, 595, 630, 665, 700]
+    let foodPos = [0, 35, 70, 105, 140, 175, 210, 245, 280, 315, 350, 385, 420, 455, 490, 525, 560, 595, 630, 665]
     var foodSection = document.getElementById("food");
     var random1 = foodPos[Math.floor(Math.random() * foodPos.length)];
     var random2 = foodPos[Math.floor(Math.random() * foodPos.length)]
@@ -66,14 +69,37 @@ function placeFood(){
 placeFood();
 
 function CheckEatFood(){
-    var foodPosX = document.getElementById("food").style.left;
-    var foodPosY = document.getElementById("food").style.top;
+    var foodPosX = extractNum(document.getElementById("food").style.left);
+    var foodPosY = extractNum(document.getElementById("food").style.top);
 
     if(posX === foodPosX && posY === foodPosY) {
         snakeSize++;
         console.log(snakeSize)
         createSnakeBody();
         placeFood();
+        snakeScore += 5;
+        let currentUser = window.localStorage.getItem("currentUser");
+        var usersArr = JSON.parse(window.localStorage.getItem("users"));
+
+        if(currentUser !== ""){
+            currentUser = JSON.parse(currentUser)
+            currentUser["score"] += snakeScore;
+            console.log(currentUser["score"], snakeScore);
+            window.localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            for(let p = 0 ; p < usersArr.length ; p++){
+                console.log(usersArr[p]["username"])
+                console.log(currentUser["username"])
+                console.log(usersArr.length)
+
+                if(usersArr[p]["username"] == currentUser["username"]) {
+                    usersArr[p]["score"] = currentUser["score"]
+                    window.localStorage.setItem("users", JSON.stringify(usersArr))
+                    break;
+                }
+            }
+            score.innerHTML = `SCORE: ${currentUser["score"]}`
+        } else{ }
+        document.querySelector("#controlsContainer p").innerHTML = `SCORE: ${snakeScore}`
     }
 }
 
@@ -110,6 +136,7 @@ function changePos(){
         endGame();
     } else {
         moveSnakeBody();
+        CheckEatFood();
         CheckIfKillSelf();
     }
 }
@@ -121,3 +148,4 @@ const Interval = setInterval(changePos, speedVal);
 function extractNum(str) {
     return parseInt(str.replace("px", ""));
 }
+
