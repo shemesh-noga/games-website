@@ -4,9 +4,12 @@ let posX = 0;
 let posY = 0;
 let direction = "right";
 var speed = "slow";
-var speedVal = 550;
+var speedVal = 200;
 let speeds = document.getElementById("speeds");
-let snakeSize = 6;
+var snakeSize = 5;
+
+
+const foodPos = [0, 35, 70, 105, 140, 175, 210, 245, 280, 315, 350, 385, 420, 455, 490, 525, 560, 595, 630, 665, 700]
 
 // create number of divs as the number of the snake body
 function createSnakeBody(){
@@ -35,13 +38,11 @@ function checkDirection() {
     if (direction === "down") {posY += 35}
 }
 
-
+// movement of the snake
 function moveSnakeBody() {
     for(let i = snakeSize - 1 ; i > 0 ; i--){
         const previousBody = document.getElementById(`body${i - 1}`);
         const thisBody = document.getElementById(`body${i}`);
-        console.log(previousBody.style.left);
-        console.log(previousBody.style.top);
         thisBody.style.left = previousBody.style.left;
         thisBody.style.top = previousBody.style.top;
     };
@@ -49,9 +50,48 @@ function moveSnakeBody() {
     document.getElementById(`body0`).style.top = posY + "px";
 };
 
-function endGame(){
-    clearInterval(Interval)
+
+
+function placeFood(){
+    var foodSection = document.getElementById("food");
+    foodSection.style.left = foodPos[Math.floor(Math.random() * foodPos.length)] + "px";
+    foodSection.style.top = foodPos[Math.floor(Math.random() * foodPos.length)] + "px";
 }
+
+placeFood();
+
+function CheckEatFood(){
+    // if() {
+    //     snakeSize = 5;
+    //     createSnakeBody();
+    //     placeFood();
+    // }
+}
+
+
+// stop game
+function endGame(){
+    clearInterval(Interval);
+}
+
+
+function CheckIfKillSelf() {
+    const headX = posX;
+    const headY = posY;
+
+    for (let i = 1; i < snakeSize; i++) { // Start from 1 since body0 is the head
+        const bodyPart = document.getElementById(`body${i}`);
+        const bodyX = extractNum(bodyPart.style.left);
+        const bodyY = extractNum(bodyPart.style.top);
+
+        // Check if head coordinates match any body part coordinates
+        if (headX === bodyX && headY === bodyY) {
+            endGame(); // End game if snake collides with itself
+            break;
+        }
+    }
+}
+
 
 
 function changePos(){
@@ -59,10 +99,16 @@ function changePos(){
 
     if(posX < 0 || posX + 35 > 700 || posY < 0 || posY + 35 > 700){
         endGame();
+    } else {
+        moveSnakeBody();
+        CheckIfKillSelf();
     }
-
-    moveSnakeBody();
 }
 
 const Interval = setInterval(changePos, speedVal);
 
+
+
+function extractNum(str) {
+    return parseInt(str.replace("px", ""));
+}

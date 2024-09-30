@@ -21,7 +21,7 @@ main{
 
 
 #controlsContainer{
-    background-color: #9178be;
+    background-color: #957ebe;
     width: 700px;
     height: 70px;
     display: flex;
@@ -69,6 +69,15 @@ option{
 
 #snakeBoard div{
     background-color: purple;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 0px;
+    top: 0px;
+}
+
+#food{
+    background-color: rgb(3, 7, 70);
     position: absolute;
     width: 35px;
     height: 35px;
