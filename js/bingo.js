@@ -34,6 +34,9 @@ var arr1 = [
 
 let start = document.getElementById("start")
 let Continue = document.getElementById("Continue")
+let restart = document.getElementById("restart")
+restart.addEventListener("click", function(){location.reload()})
+console.log(restart)
 Continue.replaceWith(start)
 
 function pickRandom(arrs) {
@@ -43,25 +46,28 @@ function pickRandom(arrs) {
 }
 
 function arrangeBoard() {
-  let cloneArray = [...arr1];
+  var cloneArray = [...arr1];
   for(let i = 1 ; i < 17 ; i++){
     let random = Math.floor(Math.random() * cloneArray.length);
     let hi = "item" + i
     document.getElementById(hi.toString()).innerHTML = cloneArray[random];
     cloneArray.splice(random,1);
+    document.getElementById(hi.toString()).style.backgroundColor = "#895f9e"
   }
 }
 
 function arrangeBoard2() {
-  let cloneArray = [...arr1];
+  var cloneArray = [...arr1];
   for(let i = 1 ; i < 17 ; i++){
     let random = Math.floor(Math.random() * cloneArray.length);
     let hi = "itemm" + i
     document.getElementById(hi.toString()).innerHTML = cloneArray[random];
     cloneArray.splice(random,1);
+    document.getElementById(hi.toString()).onclick = function(){};
+     document.getElementById(hi.toString()).style.backgroundColor = "#895f9e"
   }
-  start.replaceWith(Continue);
-  //  document.getElementsByClassName("bingo").style.backgroundColor = "#895f9e"
+   start.replaceWith(Continue);
+
 }
 
 let sentencesArr = [...arr1]
@@ -153,6 +159,7 @@ function sentenceRandom(){
           }
           if( columnnumberOfGreen === 4 || numberOfGreen === 4 ){
             document.getElementById("result").innerText = "winner";
+            Continue.replaceWith(restart)
 
           }
         }
@@ -226,14 +233,15 @@ function sentenceRandom(){
 
       if(numberOfRed === 4 || columnNumberOfRed === 4){
         document.getElementById("result").innerText = "losser";
-        Continue.replaceWith(start)
-       
-        
+        Continue.replaceWith(restart)
 
         }
       }
     } 
   }
 }
+
+
+
 
 
