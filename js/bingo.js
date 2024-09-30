@@ -150,11 +150,11 @@ function sentenceRandom(){
             }
           }
           if( columnnumberOfGreen === 4 || numberOfGreen === 4 ){
-            console.log("bingoooooooooooooo")
-            document.getElementById("winner").innerText = "winner";
+            document.getElementById("result").innerText = "winner";
+
           }
-       }
-     }
+        }
+      }
     }
   }
  
@@ -223,12 +223,13 @@ function sentenceRandom(){
       }
 
       if(numberOfRed === 4 || columnNumberOfRed === 4){
-        console.log("bingo")
+        document.getElementById("result").innerText = "losser";
+        
 
+        }
       }
-     }
-  } 
-}
+    } 
+  }
 }
 
 
