@@ -1,7 +1,7 @@
 var arr1 = [
   "קוצרט בוקר",
   "8:52-8:59",
-  "זה כל טוב אבל מסוכן",
+  "זה כלי טוב אבל מסוכן",
   "פלייליסט",
   "מזגן",
   "השוקו של יאיר",
@@ -38,26 +38,6 @@ function pickRandom(arrs) {
   return randomNumber;
 }
 
-// let randomArr = [];
-
-
-// function arrangeBoard() {
-//   for(let i = 1 ; i < 17 ; i++){
-//     let random = pickRandom(arr1)
-//     randomArr.push(random);
-//     for(let j = 0 ; j < randomArr.length ; j++){
-//       randomArr = [];
-//       if (random === randomArr[j]) {arrangeBoard()}
-//       else { break;}
-//     }
-//     let hi = "item" + i
-//     document.getElementById(hi.toString()).innerHTML = random;
-    
-
-//   }
-// }
-
-
 function arrangeBoard() {
   let cloneArray = [...arr1];
   for(let i = 1 ; i < 17 ; i++){
@@ -82,24 +62,29 @@ let sentencesArr = [...arr1]
 
 function sentenceGenerator() {
   let random = Math.floor(Math.random() * sentencesArr.length);
+  let answer = sentencesArr[random];
   sentencesArr.splice(random,1);
-  return sentencesArr[random];
+  return answer;
+
 }
 
-
-
-
+function sentenceRandom(){
+  var sent = sentenceGenerator(sentencesArr);
+  document.getElementById("sentence").innerHTML=sent;
+  for(let i = 1 ; i < 17 ; i++){
+    let hi = "item" + i
+    let thisSentence =  document.getElementById(hi.toString()); 
+    if(thisSentence.innerHTML === sent){
+      console.log("hi")
+      console.log( thisSentence);
+      thisSentence.style.backgroundColor = "green";
+        }
+  
+  }
+}
 
 arrangeBoard()
 
 arrangeBoard2()
 
-
-
-
-  var sent = sentenceGenerator(sentencesArr);
-
-  document.getElementById("sentence").innerHTML = sent;
-
-  // document.querySelector(".item1").innerHTML = sent;
 
