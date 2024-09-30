@@ -32,9 +32,9 @@ var arr1 = [
   'הממ"ק',
 ];
 
-arrangeBoard()
-
-arrangeBoard2()
+let start = document.getElementById("start")
+let Continue = document.getElementById("Continue")
+Continue.replaceWith(start)
 
 function pickRandom(arrs) {
   var lengthOfArray = arrs.length - 1;
@@ -60,6 +60,8 @@ function arrangeBoard2() {
     document.getElementById(hi.toString()).innerHTML = cloneArray[random];
     cloneArray.splice(random,1);
   }
+  start.replaceWith(Continue);
+  //  document.getElementsByClassName("bingo").style.backgroundColor = "#895f9e"
 }
 
 let sentencesArr = [...arr1]
@@ -224,6 +226,8 @@ function sentenceRandom(){
 
       if(numberOfRed === 4 || columnNumberOfRed === 4){
         document.getElementById("result").innerText = "losser";
+        Continue.replaceWith(start)
+       
         
 
         }
