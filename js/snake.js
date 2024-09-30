@@ -9,7 +9,6 @@ let speeds = document.getElementById("speeds");
 var snakeSize = 5;
 
 
-const foodPos = [0, 35, 70, 105, 140, 175, 210, 245, 280, 315, 350, 385, 420, 455, 490, 525, 560, 595, 630, 665, 700]
 
 // create number of divs as the number of the snake body
 function createSnakeBody(){
@@ -53,19 +52,29 @@ function moveSnakeBody() {
 
 
 function placeFood(){
+    let foodPos = [0, 35, 70, 105, 140, 175, 210, 245, 280, 315, 350, 385, 420, 455, 490, 525, 560, 595, 630, 665, 700]
     var foodSection = document.getElementById("food");
-    foodSection.style.left = foodPos[Math.floor(Math.random() * foodPos.length)] + "px";
-    foodSection.style.top = foodPos[Math.floor(Math.random() * foodPos.length)] + "px";
+    var random1 = foodPos[Math.floor(Math.random() * foodPos.length)];
+    var random2 = foodPos[Math.floor(Math.random() * foodPos.length)]
+    console.log(random1, random2)
+    foodSection.style.left = `${random1}px`
+    foodSection.style.top = `${random2}px`
+
 }
+
 
 placeFood();
 
 function CheckEatFood(){
-    // if() {
-    //     snakeSize = 5;
-    //     createSnakeBody();
-    //     placeFood();
-    // }
+    var foodPosX = document.getElementById("food").style.left;
+    var foodPosY = document.getElementById("food").style.top;
+
+    if(posX === foodPosX && posY === foodPosY) {
+        snakeSize++;
+        console.log(snakeSize)
+        createSnakeBody();
+        placeFood();
+    }
 }
 
 
