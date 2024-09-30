@@ -18,17 +18,10 @@ main{
     grid-template-rows: repeat(20, 1fr);
 }
 
-#snakeBoard div{
-    background-color: purple;
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    left: 0px;
-    top: 0px;
-}
+
 
 #controlsContainer{
-    background-color: blueviolet;
+    background-color: #9178be;
     width: 700px;
     height: 70px;
     display: flex;
@@ -71,6 +64,14 @@ option{
 }
 
 #body0{
-    background-color: #ad4aad;
+    background-color: rgb(173, 74, 173);
 }
 
+#snakeBoard div{
+    background-color: purple;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 0px;
+    top: 0px;
+}
