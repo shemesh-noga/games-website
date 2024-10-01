@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 *{
@@ -166,5 +166,10 @@
 }
 
 .resultContainer h1{
-    font-size: 4rem;
+    font-size: 3rem;
+}
+
+main{
+    align-items: center;
+    align-content: center;
 }
