@@ -1,3 +1,5 @@
+let scoreBingo = 0;
+
 var arr1 = [
   "קוצרט בוקר",
   "8:52-8:59",
@@ -98,6 +100,31 @@ function sentenceRandom(){
       function ClickBingo() {
       thisSentences.style.backgroundColor = "green";
 
+      scoreBingo += 5;
+      document.getElementById("scoreBingo").innerHTML = `SCORE: ${scoreBingo}`
+
+      var currentUser = window.localStorage.getItem("currentUser");
+      var usersArr = JSON.parse(window.localStorage.getItem("users"));
+
+      if(currentUser !== ""){
+        currentUser = JSON.parse(currentUser)
+        currentUser["score"] += 5;
+        console.log(currentUser["score"], scoreBingo);
+        window.localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        for(let p = 0 ; p < usersArr.length ; p++){
+          console.log(usersArr[p]["username"])
+          console.log(currentUser["username"])
+          console.log(usersArr.length)
+
+          if(usersArr[p]["username"] == currentUser["username"]) {
+            usersArr[p]["score"] = currentUser["score"]
+            window.localStorage.setItem("users", JSON.stringify(usersArr))
+            break;
+          }
+        }
+          score.innerHTML = `SCORE: ${currentUser["score"]}`
+      }
 
       for(let x = 1 ; x < 17 ; x++){
         if(1 <= x && x <= 4) {row2 = 1}

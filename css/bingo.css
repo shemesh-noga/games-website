@@ -1,17 +1,67 @@
 .flex{
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
+    margin-top: 50px;
+}
+
+*{
+    font-size: 1.2rem;
+}
+
+
+.scoreContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+}
+
+.buttons button{
+    color: white;
+    background-color: #895f9e;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.2s linear 0.05s;
+}
+
+.buttons button:hover{
+    transform: scale(1.1);
+    background-color: #7b528f;
+
+
+}
+
+.onlyButtons{
+    display: flex;
+    flex-direction: column;
 }
 
 .container{
     display: grid;
-    height: 400px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
     grid-gap: 3px;
     grid-template-columns: repeat( 16,1fr);
     grid-template-rows: repeat(16,1fr);
     border: 1px solid black;
+}
 
+#sentence{
+    font-size: 2rem;
+    text-align: center;
 }
 
 .bingo{
@@ -99,4 +149,13 @@
     grid-column: 13/17;
     grid-row:13/17;
     
+}
+
+.resultContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.resultContainer h1{
+    font-size: 4rem;
 }

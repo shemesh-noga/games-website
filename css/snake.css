@@ -85,3 +85,42 @@ option{
     top: 0px;
 }
 
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 40px;
+}
+
+#restartBtn{
+    margin-top: 30px;
+    transform: scale(1.5);
+    cursor: pointer;
+    border: none;
+    font-size: 1.3rem;
+    transition: all 0.2s linear 0.05s;
+}
+
+#restartBtn:hover{
+    transform: scale(1.7);
+    background-color:  #433e7a;
+    font-weight: 530;
+}
+
+.appearGameOver{
+    font-family: "Chakra Petch";
+    display: block;
+    position: absolute;
+    color: rgb(184, 58, 58);
+    text-shadow: 2px 2px 5px rgb(87, 12, 12);
+    font-size: 5rem;
+    font-weight: 900;
+    transition: all 1s linear 0.05s;
+}
+
+.disappearGameOver{
+    display: none;
+}
+
+

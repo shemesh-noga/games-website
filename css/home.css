@@ -80,7 +80,7 @@ header nav ul li{
     color: white;
 }
 
-header nav ul a{
+header nav ul a, button{
     text-decoration: none;
     background-color: #534e8d;
     padding: 10px 20px;

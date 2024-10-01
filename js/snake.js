@@ -1,4 +1,5 @@
 let snake = document.getElementById("snake");
+let color = document.getElementById("color");
 let snakeBoard = document.getElementById("snakeBoard")
 let posX = 0;
 let posY = 0;
@@ -8,6 +9,7 @@ var speedVal = 200;
 var snakeScore = 0;
 let speeds = document.getElementById("speeds");
 var snakeSize = 5;
+const restartBtn = document.getElementById("restartBtn");
 
 
 
@@ -20,6 +22,12 @@ function createSnakeBody(){
         snakeBoard.innerHTML += div;
         if (j==0){document.getElementById("body0").style.backgroundColor = "#ad4aad"}
     }
+}
+
+
+function updateSnakeBody() {
+    snakeBoard.innerHTML += `<div id="body${snakeSize - 1}"></div>`
+    updateColor();
 }
 
 createSnakeBody();
@@ -75,7 +83,7 @@ function CheckEatFood(){
     if(posX === foodPosX && posY === foodPosY) {
         snakeSize++;
         console.log(snakeSize)
-        createSnakeBody();
+        updateSnakeBody();
         placeFood();
         snakeScore += 5;
         let currentUser = window.localStorage.getItem("currentUser");
@@ -104,9 +112,20 @@ function CheckEatFood(){
 }
 
 
+color.addEventListener("change", updateColor)
+
+function updateColor() {
+    let colorVal = color.value;
+    for(let i = 1 ; i < snakeSize ; i++ ){
+        document.getElementById(`body${i}`).style.backgroundColor = `${colorVal}`
+    }
+}
+
+
 // stop game
 function endGame(){
     clearInterval(Interval);
+    document.getElementById("gameoverText").setAttribute("class", "appearGameOver")
 }
 
 
@@ -128,20 +147,38 @@ function CheckIfKillSelf() {
 }
 
 
-
 function changePos(){
     checkDirection();
 
     if(posX < 0 || posX + 35 > 700 || posY < 0 || posY + 35 > 700){
         endGame();
     } else {
-        moveSnakeBody();
         CheckEatFood();
+        moveSnakeBody();
         CheckIfKillSelf();
     }
 }
 
+speeds.addEventListener("change", updateSpeed);
+
+var newInterval;
+
+function updateSpeed() {
+    clearInterval(Interval);
+    const newSpeed = speeds.value;
+
+    if (newSpeed == "slow") speedVal = 500;
+    if (newSpeed == "medium") speedVal = 250;
+    if (newSpeed == "hard") speedVal = 120;
+    if (newSpeed == "mega") speedVal = 60;
+
+    newInterval = setInterval(changePos, speedVal);
+}
+
 const Interval = setInterval(changePos, speedVal);
+
+
+
 
 
 
@@ -149,3 +186,8 @@ function extractNum(str) {
     return parseInt(str.replace("px", ""));
 }
 
+
+restartBtn.addEventListener("click", function(){
+    location.reload(); 
+    document.getElementById("gameoverText").setAttribute("class", "disappearGameOver")
+})
