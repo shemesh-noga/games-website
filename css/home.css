@@ -113,3 +113,69 @@ nav ul a:hover {
     font-weight: 500;
     background-color: rgb(118, 113, 168);
 }
+
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 100px;
+    width: 100%;
+    margin-bottom: 100px;
+    
+}
+
+.flex > div {
+    margin: 20px;
+    margin: 20px;
+    font-size: 100px;
+    text-align: center;
+  }
+
+  .game:hover{
+    opacity: 0.5;
+}
+
+.game { 
+    width: 500px;
+    height: 300px;
+    padding: 25px;
+    border: 2px black solid;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+
+}
+
+
+#snake {
+    background-image:url(../img/snake.png);
+    background-size: cover;
+
+}
+
+#bingo {
+    background-image: url(../img/bingo.png);
+    background-size: cover;
+}
+
+#xo{
+    background-image: url(../img/xo.png);
+    background-size: cover;
+}
+
+#damka{
+    background-image: url(../img/damka.png);
+    background-size: cover;
+}
+
+#fireboy{
+    background-image: url(../img/fireboy.png);
+    background-size: cover;
+}
+
+#soliter{
+    background-image: url(../img/soliter.png);
+    background-size: cover;
+}
