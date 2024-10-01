@@ -13,8 +13,17 @@
 .scoreContainer{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 50px;
+}
+
+.scoreContainer h1{
+    font-size: 2rem;
+}
+
+#scoreBingo{
+    font-size: 1.3rem;
+
 }
 
 .buttons{

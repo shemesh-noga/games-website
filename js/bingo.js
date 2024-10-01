@@ -90,6 +90,11 @@ var column2;
 function sentenceRandom(){
   var sent = sentenceGenerator(sentencesArr);
   document.getElementById("sentence").innerHTML=sent;
+  document.getElementById("sentence").style.transition = "";
+  document.getElementById("sentence").style.transform = "";
+  document.getElementById("sentence").style.transition = "all 0.5s linear 0.01s";
+  document.getElementById("sentence").style.transform = "rotate(360deg)";
+  
   
   for(let x = 1 ; x < 17 ; x++){
     let hii = "itemm" + x
