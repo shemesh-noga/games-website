@@ -55,7 +55,7 @@ function moveSnakeBody() {
         const thisBody = document.getElementById(`body${i}`);
         thisBody.style.left = previousBody.style.left;
         thisBody.style.top = previousBody.style.top;
-    };
+    }
     document.getElementById(`body0`).style.left = posX + "px";
     document.getElementById(`body0`).style.top = posY + "px";
 };
@@ -70,7 +70,6 @@ function placeFood(){
     console.log(random1, random2)
     foodSection.style.left = `${random1}px`
     foodSection.style.top = `${random2}px`
-
 }
 
 

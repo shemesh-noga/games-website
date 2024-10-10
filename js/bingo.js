@@ -90,9 +90,9 @@ var column2;
 function sentenceRandom(){
   var sent = sentenceGenerator(sentencesArr);
   document.getElementById("sentence").innerHTML=sent;
-  document.getElementById("sentence").style.transition = "";
-  document.getElementById("sentence").style.transform = "";
-  document.getElementById("sentence").style.transition = "all 0.5s linear 0.01s";
+  document.getElementById("sentence").style.transition = "none";
+  document.getElementById("sentence").style.transform = "none";
+  document.getElementById("sentence").style.transition = "all 0.7s linear 0.01s";
   document.getElementById("sentence").style.transform = "rotate(360deg)";
   
   
