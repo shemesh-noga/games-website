@@ -15,7 +15,7 @@ function logInInfo() {
             document.querySelector("#wrong").innerHTML = "";
             window.localStorage.removeItem("currentUser")
             window.localStorage.setItem("currentUser", JSON.stringify(currentUser))
-            window.location.href = '/html/home.html';
+            window.location.href = '../GAME-WEBSITE/html/home.html';
             break;
         }
         else {
